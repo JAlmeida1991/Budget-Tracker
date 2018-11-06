@@ -1,19 +1,22 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { REMOVE_EXPENSE } from "../../store/actions/actions";
+import { REMOVE_EXPENSE } from "../../../store/actions/actions";
 
 const Expense = props => (
-  <div>
+  <div className="flex-grow-1">
     <h1>Expense</h1>
-    <ul>
+    <ul className="list-group inline-block">
       {props.expense.map(exp => (
-        <li key={exp.id}>
-          <span className="mr-1">{exp.description}</span>
-          <span className="mr-1">{exp.amount}</span>
+        <li
+          className="list-group-item d-flex justify-content-between"
+          key={exp.id}
+        >
+          <span>{exp.description}</span>
+          <span>{exp.amount}</span>
           <button
             onClick={() => props.removeIncome(exp)}
-            className="btn btn-primary"
+            className="btn-small btn-danger"
           >
             Delete
           </button>

@@ -37,22 +37,39 @@ class Form extends Component {
 
   render() {
     return (
-      <form onSubmit={e => e.preventDefault()}>
-        <select onChange={this.changeSelectionHandler}>
-          <option>+</option>
-          <option>-</option>
-        </select>
-        <input
-          value={this.state.description}
-          onChange={this.updateDescriptionHandler}
-          type="text"
-        />
-        <input
-          value={this.state.amount}
-          onChange={this.updateAmountHandler}
-          type="number"
-        />
-        <button onClick={this.handleButtonSubmit}>Submit</button>
+      <form
+        className="d-flex justify-content-center"
+        onSubmit={e => e.preventDefault()}
+      >
+        <div className="form-row w-75">
+          <select
+            className="form-control col-md-1 mr-1"
+            onChange={this.changeSelectionHandler}
+          >
+            <option>+</option>
+            <option>-</option>
+          </select>
+          <input
+            className="form-control col-md-6 mr-1"
+            value={this.state.description}
+            onChange={this.updateDescriptionHandler}
+            type="text"
+            placeholder="Description"
+          />
+          <input
+            className="form-control col-md-3 mr-1"
+            value={this.state.amount}
+            onChange={this.updateAmountHandler}
+            type="number"
+            placeholder="Amount"
+          />
+          <button
+            className="btn btn-primary col-md-1"
+            onClick={this.handleButtonSubmit}
+          >
+            Submit
+          </button>
+        </div>
       </form>
     );
   }
