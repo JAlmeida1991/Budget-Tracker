@@ -1,9 +1,9 @@
 import React from "react";
-import moment from "moment";
+import format from "date-fns/format";
 
 const Header = props => (
   <header>
-    <h1>The Budget for {moment().format("MMMM, DD YYYY")}</h1>
+    <h1>The Budget for {format(new Date(), "MMMM, DD YYYY")}</h1>
   </header>
 );
 
