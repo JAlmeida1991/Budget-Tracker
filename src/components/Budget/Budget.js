@@ -7,23 +7,23 @@ const Budget = props => (
     <h2>
       Income Total:
       {props.income.length &&
-        props.income.map(inc => inc.amount).reduce((p, n) => +p + +n)}
+        props.income.map(inc => +inc.amount).reduce((p, n) => p + n, 0)}
     </h2>
     <h2>
       Expense Total:
       {props.expense.length &&
-        props.expense.map(inc => inc.amount).reduce((p, n) => +p + +n)}
+        props.expense.map(inc => +inc.amount).reduce((p, n) => p + n, 0)}
     </h2>
     <h2>
       Grand Total:
       {(() => {
         const incTotal =
           props.income.length &&
-          props.income.map(inc => inc.amount).reduce((p, n) => +p + +n);
+          props.income.map(inc => +inc.amount).reduce((p, n) => p + n, 0);
 
         const expTotal =
           props.expense.length &&
-          props.expense.map(inc => inc.amount).reduce((p, n) => +p + +n);
+          props.expense.map(inc => +inc.amount).reduce((p, n) => p + n, 0);
         return incTotal - expTotal;
       })()}
     </h2>
