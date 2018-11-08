@@ -41,7 +41,7 @@ class Form extends Component {
         className="d-flex justify-content-center"
         onSubmit={e => e.preventDefault()}
       >
-        <div className="form-row w-75">
+        <div className="form-row w-100">
           <select
             className="form-control col-md-1 mr-1"
             onChange={this.changeSelectionHandler}

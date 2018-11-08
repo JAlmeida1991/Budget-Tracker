@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 
-import "./App.css";
-
 import Header from "./components/Header/Header";
 import Budget from "./components/Budget/Budget";
 import Form from "./components/Form/Form";
@@ -12,7 +10,7 @@ import BudgetPieChart from "./components/BudgetPieChart/BudgetPieChart";
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="container">
         <Header />
         <Budget />
         <BudgetPieChart />

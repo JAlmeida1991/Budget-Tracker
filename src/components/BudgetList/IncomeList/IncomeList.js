@@ -5,7 +5,7 @@ import { REMOVE_INCOME } from "../../../store/actions/actions";
 
 const Income = props => (
   <div className="flex-grow-1">
-    <h1>Income</h1>
+    <h1 className="text-center">Income</h1>
     <ul className="list-group ">
       {props.income.map(inc => (
         <li
@@ -18,7 +18,7 @@ const Income = props => (
             onClick={() => props.removeIncome(inc)}
             className="btn-small btn-danger"
           >
-            Delete
+            <i className="fa fa-trash" />
           </button>
         </li>
       ))}
