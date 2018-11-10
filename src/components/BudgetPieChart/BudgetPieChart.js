@@ -3,13 +3,13 @@ import { connect } from "react-redux";
 import { Pie } from "react-chartjs-2";
 
 const BudgetPieChart = props => {
-  console.log(props);
   return (
     <div
       style={{
         width: "300px",
         height: "300px",
-        margin: "0 auto"
+        margin: "0 auto",
+        marginBottom: ".5em"
       }}
     >
       <Pie
@@ -39,8 +39,8 @@ const BudgetPieChart = props => {
         options={{
           title: {
             display: true,
-            text: "Budget",
-            fontSize: 20
+            text: "Budget Data",
+            fontSize: 18
           }
         }}
       />

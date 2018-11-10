@@ -103,12 +103,12 @@ class Form extends Component {
   }
 }
 
-const mapDisptchToProps = dispatch => ({
+const mapDispatchToProps = dispatch => ({
   addIncome: state => dispatch(addIncome(state)),
   addExpense: state => dispatch(addExpense(state))
 });
 
 export default connect(
   null,
-  mapDisptchToProps
+  mapDispatchToProps
 )(Form);
