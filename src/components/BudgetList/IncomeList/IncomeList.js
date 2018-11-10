@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { REMOVE_INCOME } from "../../../store/actions/actions";
+import { removeIncome } from "../../../store/actions/actionCreators";
 
 const Income = props => (
   <div className="flex-grow-1">
@@ -13,7 +13,7 @@ const Income = props => (
           key={inc.id}
         >
           <span>{inc.description}</span>
-          <span>{inc.amount}</span>
+          <span>{Number(inc.amount).toFixed(2)}</span>
           <button
             onClick={() => props.removeIncome(inc)}
             className="btn-small btn-danger"
@@ -31,7 +31,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  removeIncome: income => dispatch({ type: REMOVE_INCOME, payload: income })
+  removeIncome: income => dispatch(removeIncome(income))
 });
 
 export default connect(

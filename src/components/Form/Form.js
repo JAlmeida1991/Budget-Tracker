@@ -1,9 +1,8 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 
-import ErrorMessage from "./ErrorMessage";
-import guid from "../../util/uniqueId";
-import { ADD_INCOME, ADD_EXPENSE } from "../../store/actions/actions";
+import ErrorMessage from "./ErrorMessage/ErrorMessage";
+import { addIncome, addExpense } from "../../store/actions/actionCreators";
 
 class Form extends Component {
   state = {
@@ -70,28 +69,28 @@ class Form extends Component {
           <div className="form-row w-100">
             <select
               ref={this.selectInput}
-              className="form-control col-md-1 mr-1"
+              className="form-control col-md-1"
               onChange={this.changeSelectionHandler}
             >
               <option>+</option>
               <option>-</option>
             </select>
             <input
-              className="form-control col-md-6 mr-1"
+              className="form-control col-md-6"
               value={this.state.balance.description}
               onChange={this.updateDescriptionHandler}
               type="text"
               placeholder="Description"
             />
             <input
-              className="form-control col-md-3 mr-1"
+              className="form-control col-md-3"
               value={this.state.balance.amount}
               onChange={this.updateAmountHandler}
               type="number"
               placeholder="Amount"
             />
             <button
-              className="btn btn-primary col-md-1"
+              className="btn btn-primary col-md-2"
               onClick={this.handleButtonSubmit}
             >
               Submit
@@ -105,10 +104,8 @@ class Form extends Component {
 }
 
 const mapDisptchToProps = dispatch => ({
-  addIncome: state =>
-    dispatch({ type: ADD_INCOME, payload: { ...state.balance, id: guid() } }),
-  addExpense: state =>
-    dispatch({ type: ADD_EXPENSE, payload: { ...state.balance, id: guid() } })
+  addIncome: state => dispatch(addIncome(state)),
+  addExpense: state => dispatch(addExpense(state))
 });
 
 export default connect(

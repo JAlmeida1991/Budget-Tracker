@@ -4,17 +4,23 @@ import { connect } from "react-redux";
 const Budget = props => (
   <div className="d-flex justify-content-around">
     <h2 className="bg-primary flex-grow-1 p-2 text-center">
-      Income Total:{" $"}
+      Income:{" $"}
       {props.income.length &&
-        props.income.map(inc => +inc.amount).reduce((p, n) => p + n, 0)}
+        props.income
+          .map(inc => +inc.amount)
+          .reduce((p, n) => p + n, 0)
+          .toFixed(2)}
     </h2>
     <h2 className="bg-danger flex-grow-1 p-2 text-center">
-      Expense Total: {" $"}
+      Expense: {" $"}
       {props.expense.length &&
-        props.expense.map(inc => +inc.amount).reduce((p, n) => p + n, 0)}
+        props.expense
+          .map(inc => +inc.amount)
+          .reduce((p, n) => p + n, 0)
+          .toFixed(2)}
     </h2>
     <h2 className="bg-success flex-grow-1 p-2 text-center">
-      Grand Total: {" $"}
+      Budget: {" $"}
       {(() => {
         const incTotal =
           props.income.length &&
@@ -23,7 +29,8 @@ const Budget = props => (
         const expTotal =
           props.expense.length &&
           props.expense.map(inc => +inc.amount).reduce((p, n) => p + n, 0);
-        return incTotal - expTotal;
+
+        return incTotal - expTotal !== 0 ? (incTotal - expTotal).toFixed(2) : 0;
       })()}
     </h2>
   </div>
