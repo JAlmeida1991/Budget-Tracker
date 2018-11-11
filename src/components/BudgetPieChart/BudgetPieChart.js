@@ -6,8 +6,8 @@ const BudgetPieChart = props => {
   return (
     <div
       style={{
-        width: "300px",
-        height: "300px",
+        width: "250px",
+        height: "250px",
         margin: "0 auto",
         marginBottom: ".5em"
       }}
@@ -40,7 +40,8 @@ const BudgetPieChart = props => {
           title: {
             display: true,
             text: "Budget Data",
-            fontSize: 18
+            fontSize: 18,
+            fontFamily: "Roboto"
           }
         }}
       />

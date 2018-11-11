@@ -2,23 +2,26 @@ import React from "react";
 import { connect } from "react-redux";
 
 const Budget = props => (
-  <div className="d-flex justify-content-around">
-    <h2 className="bg-primary flex-grow-1 p-2 text-center">
-      Income:{" $"}
-      {props.income.length &&
-        props.income
-          .map(inc => +inc.amount)
-          .reduce((p, n) => p + n, 0)
-          .toFixed(2)}
-    </h2>
-    <h2 className="bg-danger flex-grow-1 p-2 text-center">
-      Expense: {" $"}
-      {props.expense.length &&
-        props.expense
-          .map(inc => +inc.amount)
-          .reduce((p, n) => p + n, 0)
-          .toFixed(2)}
-    </h2>
+  <div>
+    <div className="d-flex justify-content-around">
+      <h2 className="bg-primary flex-grow-1 p-2 text-center mr-2">
+        Income:{" $"}
+        {props.income.length &&
+          props.income
+            .map(inc => +inc.amount)
+            .reduce((p, n) => p + n, 0)
+            .toFixed(2)}
+      </h2>
+      <h2 className="bg-danger flex-grow-1 p-2 text-center">
+        Expense: {" $"}
+        {props.expense.length &&
+          props.expense
+            .map(inc => +inc.amount)
+            .reduce((p, n) => p + n, 0)
+            .toFixed(2)}
+      </h2>
+    </div>
+
     <h2 className="bg-success flex-grow-1 p-2 text-center">
       Budget: {" $"}
       {(() => {

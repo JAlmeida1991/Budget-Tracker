@@ -63,7 +63,7 @@ class Form extends Component {
     return (
       <Fragment>
         <form
-          className="d-flex justify-content-center"
+          className="d-flex justify-content-center mb-2"
           onSubmit={e => e.preventDefault()}
         >
           <div className="form-row w-100">

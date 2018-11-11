@@ -1,12 +1,12 @@
-export const saveStateToStorage = state => {
+export const saveStateToStorage = ({ income, expense }) => {
   try {
-    const incomeJSON = JSON.stringify(state.income);
-    const expenseJSON = JSON.stringify(state.expense);
+    const incomeJSON = JSON.stringify(income);
+    const expenseJSON = JSON.stringify(expense);
     localStorage.setItem("income", incomeJSON);
     localStorage.setItem("expense", expenseJSON);
   } catch (e) {
     // Default if Browser does not support local storage... Let reducer handle state naturally
-    return undefined;
+    return;
   }
 };
 

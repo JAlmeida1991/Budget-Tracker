@@ -5,7 +5,7 @@ import { removeExpense } from "../../../store/actions/actionCreators";
 
 const Expense = props => (
   <div className="flex-grow-1">
-    <h1 className="text-center">Expense</h1>
+    <h2 className="text-center bg-danger p-2">Expense</h2>
     <ul className="list-group inline-block">
       {props.expense.map(exp => (
         <li
@@ -16,7 +16,7 @@ const Expense = props => (
           <span>{Number(exp.amount).toFixed(2)}</span>
           <button
             onClick={() => props.removeIncome(exp)}
-            className="btn-small btn-danger"
+            className="btn btn-sm btn-danger"
           >
             <i className="fa fa-trash" />
           </button>
