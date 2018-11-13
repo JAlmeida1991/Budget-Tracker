@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 const Budget = props => (
   <div>
     <div className="d-flex justify-content-around">
-      <h2 className="bg-primary flex-grow-1 p-2 text-center mr-2">
+      <h2 className="bg-primary flex-grow-1 p-2 text-center m-1">
         Income:{" $"}
         {props.income.length &&
           props.income
@@ -12,7 +12,7 @@ const Budget = props => (
             .reduce((p, n) => p + n, 0)
             .toFixed(2)}
       </h2>
-      <h2 className="bg-danger flex-grow-1 p-2 text-center">
+      <h2 className="bg-danger flex-grow-1 p-2 text-center m-1">
         Expense: {" $"}
         {props.expense.length &&
           props.expense
@@ -22,7 +22,7 @@ const Budget = props => (
       </h2>
     </div>
 
-    <h2 className="bg-success flex-grow-1 p-2 text-center">
+    <h2 className="bg-success flex-grow-1 p-2 text-center m-1">
       Budget: {" $"}
       {(() => {
         const incTotal =

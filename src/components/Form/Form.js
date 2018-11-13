@@ -62,39 +62,45 @@ class Form extends Component {
   render() {
     return (
       <Fragment>
-        <form
-          className="d-flex justify-content-center mb-2"
-          onSubmit={e => e.preventDefault()}
-        >
+        <form onSubmit={e => e.preventDefault()}>
           <div className="form-row w-100">
-            <select
-              ref={this.selectInput}
-              className="form-control col-md-1"
-              onChange={this.changeSelectionHandler}
-            >
-              <option>+</option>
-              <option>-</option>
-            </select>
-            <input
-              className="form-control col-md-6"
-              value={this.state.balance.description}
-              onChange={this.updateDescriptionHandler}
-              type="text"
-              placeholder="Description"
-            />
-            <input
-              className="form-control col-md-3"
-              value={this.state.balance.amount}
-              onChange={this.updateAmountHandler}
-              type="number"
-              placeholder="Amount"
-            />
-            <button
-              className="btn btn-primary col-md-2"
-              onClick={this.handleButtonSubmit}
-            >
-              Submit
-            </button>
+            <div className="col-md-1">
+              <select
+                ref={this.selectInput}
+                className="form-control "
+                onChange={this.changeSelectionHandler}
+              >
+                <option>+</option>
+                <option>-</option>
+              </select>
+            </div>
+            <div className="col-md-6">
+              <input
+                className="form-control"
+                value={this.state.balance.description}
+                onChange={this.updateDescriptionHandler}
+                type="text"
+                placeholder="Description"
+              />
+            </div>
+            <div className="col-md-3">
+              <input
+                className="form-control"
+                value={this.state.balance.amount}
+                onChange={this.updateAmountHandler}
+                type="number"
+                placeholder="Amount"
+              />
+            </div>
+            <div className="col-md-2">
+              <button
+                className="btn btn-primary w-100"
+                type="submit"
+                onClick={this.handleButtonSubmit}
+              >
+                Submit
+              </button>
+            </div>
           </div>
         </form>
         {this.state.error && <ErrorMessage />}

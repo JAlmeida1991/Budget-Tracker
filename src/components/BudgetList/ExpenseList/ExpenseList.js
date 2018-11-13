@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { removeExpense } from "../../../store/actions/actionCreators";
 
 const Expense = props => (
-  <div className="flex-grow-1">
+  <div className="flex-grow-1 m-1">
     <h2 className="text-center bg-danger p-2">Expense</h2>
     <ul className="list-group inline-block">
       {props.expense.map(exp => (
@@ -23,6 +23,7 @@ const Expense = props => (
         </li>
       ))}
     </ul>
+    {props.expense.length === 0 && <p>No expense has been recorded</p>}
   </div>
 );
 
