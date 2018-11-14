@@ -4,8 +4,17 @@ import { connect } from "react-redux";
 import { removeExpense } from "../../../store/actions/actionCreators";
 
 const Expense = props => (
-  <div className="flex-grow-1 m-1">
-    <h2 className="text-center bg-danger p-2">Expense</h2>
+  <div className="flex-grow-1">
+    <h2 className="text-danger text-center">
+      Expense{"  "}
+      <button
+        disabled={props.expense.length === 0}
+        className="btn btn-danger btn-sm"
+      >
+        Delete All
+      </button>
+    </h2>
+
     <ul className="list-group inline-block">
       {props.expense.map(exp => (
         <li
@@ -23,7 +32,9 @@ const Expense = props => (
         </li>
       ))}
     </ul>
-    {props.expense.length === 0 && <p>No expense has been recorded</p>}
+    {props.expense.length === 0 && (
+      <p className="text-center">No expense has been recorded</p>
+    )}
   </div>
 );
 

@@ -32,3 +32,13 @@ body {
 .footer {
   flex-grow: 0;
 }
+
+@media only screen and (max-width: 40em) {
+  .budget-list {
+    flex-direction: column;
+  }
+
+  .budget-list > * {
+    text-align: center;
+  }
+}

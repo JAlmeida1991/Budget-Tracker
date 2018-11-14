@@ -4,8 +4,17 @@ import { connect } from "react-redux";
 import { removeIncome } from "../../../store/actions/actionCreators";
 
 const Income = props => (
-  <div className="flex-grow-1 m-1">
-    <h2 className="text-center bg-primary p-2">Income</h2>
+  <div className="flex-grow-1">
+    <h2 className="text-primary text-center">
+      Income{"  "}
+      <button
+        disabled={props.income.length === 0}
+        className="btn btn-primary btn-sm"
+      >
+        Delete All
+      </button>
+    </h2>
+
     <ul className="list-group ">
       {props.income.map(inc => (
         <li
@@ -23,7 +32,9 @@ const Income = props => (
         </li>
       ))}
     </ul>
-    {props.income.length === 0 && <p>No income has been recorded</p>}
+    {props.income.length === 0 && (
+      <p className="text-center">No income has been recorded</p>
+    )}
   </div>
 );
 

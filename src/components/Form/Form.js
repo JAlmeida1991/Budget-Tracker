@@ -70,12 +70,13 @@ class Form extends Component {
                 className="form-control "
                 onChange={this.changeSelectionHandler}
               >
-                <option>+</option>
-                <option>-</option>
+                <option value="+">+</option>
+                <option value="-">-</option>
               </select>
             </div>
             <div className="col-md-6">
               <input
+                name="description"
                 className="form-control"
                 value={this.state.balance.description}
                 onChange={this.updateDescriptionHandler}
@@ -85,6 +86,7 @@ class Form extends Component {
             </div>
             <div className="col-md-3">
               <input
+                name="amount"
                 className="form-control"
                 value={this.state.balance.amount}
                 onChange={this.updateAmountHandler}
