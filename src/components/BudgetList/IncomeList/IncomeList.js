@@ -1,7 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { removeIncome } from "../../../store/actions/actionCreators";
+import {
+  removeIncome,
+  removeAllIncome
+} from "../../../store/actions/actionCreators";
 
 const Income = props => (
   <div className="flex-grow-1">
@@ -10,6 +13,7 @@ const Income = props => (
       <button
         disabled={props.income.length === 0}
         className="btn btn-primary btn-sm"
+        onClick={props.removeAllIncome}
       >
         Delete All
       </button>
@@ -22,7 +26,7 @@ const Income = props => (
           key={inc.id}
         >
           <span>{inc.description}</span>
-          <span>{Number(inc.amount).toFixed(2)}</span>
+          <span>${Number(inc.amount).toFixed(2)}</span>
           <button
             onClick={() => props.removeIncome(inc)}
             className="btn btn-sm btn-danger"
@@ -43,7 +47,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  removeIncome: income => dispatch(removeIncome(income))
+  removeIncome: income => dispatch(removeIncome(income)),
+  removeAllIncome: () => dispatch(removeAllIncome())
 });
 
 export default connect(

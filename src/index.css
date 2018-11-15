@@ -33,7 +33,7 @@ body {
   flex-grow: 0;
 }
 
-@media only screen and (max-width: 40em) {
+@media only screen and (max-width: 48em) {
   .budget-list {
     flex-direction: column;
   }

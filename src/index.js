@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
-import * as serviceWorker from "./serviceWorker";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -10,6 +9,7 @@ import "./index.css";
 
 import App from "./containers/App";
 
+import * as serviceWorker from "./serviceWorker";
 import rootReducer from "./store/reducer/reducer";
 import { loadStateFromStorage, saveStateToStorage } from "./util/localStorage";
 

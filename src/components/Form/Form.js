@@ -13,6 +13,10 @@ class Form extends Component {
 
   selectInput = React.createRef();
 
+  componentDidMount() {
+    this.selectInput.current.focus();
+  }
+
   changeSelectionHandler = e => {
     this.setState({ selection: e.target.value, error: false });
   };
@@ -69,6 +73,7 @@ class Form extends Component {
                 ref={this.selectInput}
                 className="form-control "
                 onChange={this.changeSelectionHandler}
+                value={this.state.selection}
               >
                 <option value="+">+</option>
                 <option value="-">-</option>
