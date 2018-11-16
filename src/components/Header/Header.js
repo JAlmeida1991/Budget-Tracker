@@ -8,5 +8,3 @@ const Header = props => (
 );
 
 export default Header;
-
-/* className="jumbotron" */

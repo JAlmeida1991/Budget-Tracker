@@ -12,29 +12,36 @@ const Expense = props => (
       Expense{"  "}
       <button
         disabled={props.expense.length === 0}
-        className="btn btn-danger btn-sm"
+        className="btn btn-outline-danger btn-sm"
         onClick={props.removeAllExpense}
       >
         Delete All
       </button>
     </h2>
 
-    <ul className="list-group inline-block">
+    <ul className="list-group">
       {props.expense.map(exp => (
         <li
           className="list-group-item d-flex justify-content-between"
           key={exp.id}
         >
-          <span>{exp.description}</span>
-          <span className="flex-grow-1 text-center">
-            ${Number(exp.amount).toFixed(2)}
-          </span>
-          <button
-            onClick={() => props.removeIncome(exp)}
-            className="btn btn-sm btn-danger"
-          >
-            <i className="fa fa-trash" />
-          </button>
+          <div>
+            <strong>
+              <span>{exp.description}</span>
+            </strong>
+            <br />
+            <span>${Number(exp.amount).toFixed(2)}</span>
+          </div>
+          <div>
+            <button
+              onClick={() => props.removeIncome(exp)}
+              type="button"
+              class="close"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
         </li>
       ))}
     </ul>

@@ -10,13 +10,13 @@ const rootReducer = (state = initState, { type, payload }) => {
     case actionTypes.ADD_INCOME:
       return {
         ...state,
-        income: state.income.concat(payload)
+        income: [...state.income, payload]
       };
 
     case actionTypes.ADD_EXPENSE:
       return {
         ...state,
-        expense: state.expense.concat(payload)
+        expense: [...state.expense, payload]
       };
 
     case actionTypes.REMOVE_INCOME:

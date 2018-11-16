@@ -12,27 +12,36 @@ const Income = props => (
       Income{"  "}
       <button
         disabled={props.income.length === 0}
-        className="btn btn-primary btn-sm"
+        className="btn btn-outline-primary btn-sm"
         onClick={props.removeAllIncome}
       >
         Delete All
       </button>
     </h2>
 
-    <ul className="list-group ">
+    <ul className="list-group">
       {props.income.map(inc => (
         <li
           className="list-group-item  d-flex justify-content-between"
           key={inc.id}
         >
-          <span>{inc.description}</span>
-          <span>${Number(inc.amount).toFixed(2)}</span>
-          <button
-            onClick={() => props.removeIncome(inc)}
-            className="btn btn-sm btn-danger"
-          >
-            <i className="fa fa-trash" />
-          </button>
+          <div>
+            <strong>
+              <span>{inc.description}</span>
+            </strong>
+            <br />
+            <span>${Number(inc.amount).toFixed(2)}</span>
+          </div>
+          <div>
+            <button
+              onClick={() => props.removeIncome(inc)}
+              type="button"
+              class="close"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
         </li>
       ))}
     </ul>

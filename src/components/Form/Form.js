@@ -8,7 +8,7 @@ class Form extends Component {
   state = {
     selection: "+",
     balance: { description: "", amount: "" },
-    error: false
+    error: ""
   };
 
   selectInput = React.createRef();
@@ -18,12 +18,12 @@ class Form extends Component {
   }
 
   changeSelectionHandler = e => {
-    this.setState({ selection: e.target.value, error: false });
+    this.setState({ selection: e.target.value, error: "" });
   };
 
   updateDescriptionHandler = e => {
     this.setState({
-      error: false,
+      error: "",
       balance: {
         ...this.state.balance,
         description: e.target.value
@@ -33,7 +33,7 @@ class Form extends Component {
 
   updateAmountHandler = e => {
     this.setState({
-      error: false,
+      error: "",
       balance: {
         ...this.state.balance,
         amount: e.target.value
@@ -43,6 +43,7 @@ class Form extends Component {
 
   handleButtonSubmit = () => {
     const { description, amount } = this.state.balance;
+
     if (description && amount > 0) {
       if (this.state.selection === "+") {
         this.props.addIncome(this.state);
@@ -51,15 +52,22 @@ class Form extends Component {
         this.props.addExpense(this.state);
         this.selectInput.current.focus();
       }
-
       this.setState({
         balance: {
           description: "",
           amount: ""
         }
       });
+    } else if (!description && !amount) {
+      this.setState({
+        error: "Please enter both description and amount!"
+      });
+    } else if (!description && amount) {
+      this.setState({ error: "Please enter a description!" });
+    } else if (description && !amount) {
+      this.setState({ error: "Please enter an amount!" });
     } else {
-      this.setState({ error: true });
+      this.setState({ error: "Please enter a positive amount!" });
     }
   };
 
@@ -110,7 +118,7 @@ class Form extends Component {
             </div>
           </div>
         </form>
-        {this.state.error && <ErrorMessage />}
+        {this.state.error && <ErrorMessage message={this.state.error} />}
       </Fragment>
     );
   }
