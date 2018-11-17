@@ -6,6 +6,8 @@ import {
   removeAllExpense
 } from "../../../store/actions/actionCreators";
 
+import formatNum from "../../../util/formatNumber";
+
 const Expense = props => (
   <div className="flex-grow-1">
     <h2 className="text-danger text-center">
@@ -22,7 +24,7 @@ const Expense = props => (
     <ul className="list-group">
       {props.expense.map(exp => (
         <li
-          className="list-group-item d-flex justify-content-between"
+          className="list-group-item-danger list-group-item d-flex justify-content-between"
           key={exp.id}
         >
           <div>
@@ -30,13 +32,13 @@ const Expense = props => (
               <span>{exp.description}</span>
             </strong>
             <br />
-            <span>${Number(exp.amount).toFixed(2)}</span>
+            <span>${formatNum(exp.amount)}</span>
           </div>
           <div>
             <button
               onClick={() => props.removeIncome(exp)}
               type="button"
-              class="close"
+              className="close"
               aria-label="Close"
             >
               <span aria-hidden="true">&times;</span>
@@ -46,7 +48,7 @@ const Expense = props => (
       ))}
     </ul>
     {props.expense.length === 0 && (
-      <p className="text-center">No expense has been recorded</p>
+      <p className="text-center font-italic">No expense has been recorded</p>
     )}
   </div>
 );

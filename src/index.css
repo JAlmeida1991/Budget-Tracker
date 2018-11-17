@@ -35,8 +35,4 @@ body {
   .budget-list {
     flex-direction: column;
   }
-
-  .budget-list > * {
-    text-align: center;
-  }
 }

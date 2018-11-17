@@ -6,6 +6,8 @@ import {
   removeAllIncome
 } from "../../../store/actions/actionCreators";
 
+import formatNum from "../../../util/formatNumber";
+
 const Income = props => (
   <div className="flex-grow-1">
     <h2 className="text-primary text-center">
@@ -22,7 +24,7 @@ const Income = props => (
     <ul className="list-group">
       {props.income.map(inc => (
         <li
-          className="list-group-item  d-flex justify-content-between"
+          className="list-group-item-primary list-group-item  d-flex justify-content-between"
           key={inc.id}
         >
           <div>
@@ -30,23 +32,24 @@ const Income = props => (
               <span>{inc.description}</span>
             </strong>
             <br />
-            <span>${Number(inc.amount).toFixed(2)}</span>
+            <span>${formatNum(parseFloat(inc.amount))}</span>
           </div>
           <div>
             <button
               onClick={() => props.removeIncome(inc)}
               type="button"
-              class="close"
+              className="close"
               aria-label="Close"
             >
               <span aria-hidden="true">&times;</span>
             </button>
+            <br />
           </div>
         </li>
       ))}
     </ul>
     {props.income.length === 0 && (
-      <p className="text-center">No income has been recorded</p>
+      <p className="text-center font-italic">No income has been recorded</p>
     )}
   </div>
 );

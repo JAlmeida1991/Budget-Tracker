@@ -41,7 +41,7 @@ const BudgetPieChart = props => {
             display: true,
             text: "Budget Data",
             fontSize: 18,
-            fontFamily: "Roboto"
+            fontFamily: "Helvetica"
           }
         }}
       />

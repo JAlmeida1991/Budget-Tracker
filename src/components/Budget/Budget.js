@@ -1,24 +1,24 @@
 import React from "react";
 import { connect } from "react-redux";
 
+import formatNum from "../../util/formatNumber";
+
 const Budget = props => (
   <div>
     <div className="d-flex justify-content-around">
       <h2 className="bg-primary flex-grow-1 p-2 text-center m-1">
         Income:{" $"}
         {props.income.length &&
-          props.income
-            .map(inc => +inc.amount)
-            .reduce((p, n) => p + n, 0)
-            .toFixed(2)}
+          formatNum(
+            props.income.map(inc => +inc.amount).reduce((p, n) => p + n, 0)
+          )}
       </h2>
       <h2 className="bg-danger flex-grow-1 p-2 text-center m-1">
         Expense: {" $"}
         {props.expense.length &&
-          props.expense
-            .map(inc => +inc.amount)
-            .reduce((p, n) => p + n, 0)
-            .toFixed(2)}
+          formatNum(
+            props.expense.map(inc => +inc.amount).reduce((p, n) => p + n, 0)
+          )}
       </h2>
     </div>
 
@@ -33,7 +33,7 @@ const Budget = props => (
           props.expense.length &&
           props.expense.map(inc => +inc.amount).reduce((p, n) => p + n, 0);
 
-        return incTotal - expTotal !== 0 ? (incTotal - expTotal).toFixed(2) : 0;
+        return incTotal - expTotal !== 0 ? formatNum(incTotal - expTotal) : 0;
       })()}
     </h2>
   </div>
