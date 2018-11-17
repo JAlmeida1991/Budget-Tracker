@@ -67,7 +67,7 @@ class Form extends Component {
     } else if (description && !amount) {
       this.setState({ error: "Please enter an amount!" });
     } else {
-      this.setState({ error: "Please enter a positive amount!" });
+      this.setState({ error: "Please enter an amount greater than zero!" });
     }
   };
 
@@ -78,6 +78,7 @@ class Form extends Component {
           <div className="form-row w-100">
             <div className="col-md-1">
               <select
+                name="select"
                 ref={this.selectInput}
                 className="form-control "
                 onChange={this.changeSelectionHandler}
@@ -109,6 +110,7 @@ class Form extends Component {
             </div>
             <div className="col-md-2">
               <button
+                name="submit"
                 className="btn btn-primary w-100"
                 type="submit"
                 onClick={this.handleButtonSubmit}

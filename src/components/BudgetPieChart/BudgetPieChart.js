@@ -23,11 +23,13 @@ const BudgetPieChart = props => {
                   ? props.income
                       .map(inc => +inc.amount)
                       .reduce((p, n) => p + n, 0)
+                      .toFixed(2)
                   : 0,
                 props.expense.length
                   ? props.expense
                       .map(exp => +exp.amount)
                       .reduce((p, n) => p + n, 0)
+                      .toFixed(2)
                   : 0
               ],
               backgroundColor: ["#2196f3", "#ff1744"]

@@ -32,7 +32,7 @@ const Expense = props => (
               <span>{exp.description}</span>
             </strong>
             <br />
-            <span>${formatNum(exp.amount)}</span>
+            <span>${formatNum(parseFloat(exp.amount))}</span>
           </div>
           <div>
             <button

@@ -10,7 +10,7 @@ const formatNum = num => {
       .reverse()
       .join("")
       // Join decimal number with dot
-      .concat(".", dec)
+      .concat(".", dec.slice(0, 2))
   );
 };
 
