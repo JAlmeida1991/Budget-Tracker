@@ -17,6 +17,12 @@ class Form extends Component {
     this.selectInput.current.focus();
   }
 
+  // Need to check if updated error message does not equal current state error message since setState is async
+  componentDidUpdate(props, { error }) {
+    if (this.state.error !== error && !error) {
+      window.setTimeout(() => this.setState({ error: "" }), 2000);
+    }
+  }
   changeSelectionHandler = e => {
     this.setState({ selection: e.target.value, error: "" });
   };
@@ -80,7 +86,7 @@ class Form extends Component {
               <select
                 name="select"
                 ref={this.selectInput}
-                className="form-control "
+                className="form-control"
                 onChange={this.changeSelectionHandler}
                 value={this.state.selection}
               >
