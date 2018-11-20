@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import format from "date-fns/format";
 
 import {
   removeIncome,
@@ -44,6 +45,9 @@ const Income = props => (
               <span aria-hidden="true">&times;</span>
             </button>
             <br />
+            <span className="small">
+              Added on {format(inc.createdAt, "MMM Do YY hh:mm:ss")}
+            </span>
           </div>
         </li>
       ))}

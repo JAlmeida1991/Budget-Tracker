@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import format from "date-fns/format";
 
 import {
   removeExpense,
@@ -43,6 +44,10 @@ const Expense = props => (
             >
               <span aria-hidden="true">&times;</span>
             </button>
+            <br />
+            <span className="small">
+              Added on {format(exp.createdAt, "MMM Do YY hh:mm:ss")}
+            </span>
           </div>
         </li>
       ))}

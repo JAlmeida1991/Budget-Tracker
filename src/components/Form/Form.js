@@ -7,7 +7,7 @@ import { addIncome, addExpense } from "../../store/actions/actionCreators";
 class Form extends Component {
   state = {
     selection: "+",
-    balance: { description: "", amount: "" },
+    balance: { description: "", amount: "", createdAt: null },
     error: ""
   };
 
@@ -47,10 +47,17 @@ class Form extends Component {
     });
   };
 
-  handleButtonSubmit = () => {
+  // Need to make async function since setState is asynchronous. Will default to original epoch date otherwise...
+  handleButtonSubmit = async () => {
     const { description, amount } = this.state.balance;
 
     if (description && amount > 0) {
+      await this.setState(state => ({
+        balance: {
+          ...this.state.balance,
+          createdAt: new Date()
+        }
+      }));
       if (this.state.selection === "+") {
         this.props.addIncome(this.state);
         this.selectInput.current.focus();
@@ -58,12 +65,13 @@ class Form extends Component {
         this.props.addExpense(this.state);
         this.selectInput.current.focus();
       }
-      this.setState({
+      this.setState(state => ({
         balance: {
           description: "",
-          amount: ""
+          amount: "",
+          createdAt: null
         }
-      });
+      }));
     } else if (!description && !amount) {
       this.setState({
         error: "Please enter both description and amount!"
