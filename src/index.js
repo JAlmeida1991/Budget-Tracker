@@ -9,7 +9,7 @@ import "./index.css";
 import App from "./containers/App";
 
 import * as serviceWorker from "./serviceWorker";
-import rootReducer from "./store/reducer/reducer";
+import rootReducer from "./store/reducers/rootReducer";
 import { loadStateFromStorage, saveStateToStorage } from "./util/localStorage";
 
 const persistedState = loadStateFromStorage();
