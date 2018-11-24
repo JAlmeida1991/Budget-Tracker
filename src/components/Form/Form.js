@@ -88,7 +88,10 @@ class Form extends Component {
   render() {
     return (
       <Fragment>
-        <form onSubmit={e => e.preventDefault()}>
+        <form
+          className="d-flex justify-content-center"
+          onSubmit={e => e.preventDefault()}
+        >
           <div className="form-row w-100">
             <div className="col-md-1">
               <select

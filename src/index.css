@@ -31,8 +31,28 @@ body {
   flex-grow: 0;
 }
 
+.pie-container {
+  width: 250px;
+  height: 250px;
+  margin: 0 auto;
+  margin-bottom: 0.5em;
+}
+
 @media only screen and (max-width: 48em) {
   .budget-list {
     flex-direction: column;
+  }
+  .pie-container {
+    display: none;
+  }
+  .inc-exp--header {
+    flex-direction: column;
+  }
+  .inc-exp--header > * {
+    margin-bottom: 2px !important;
+  }
+
+  .budg--header {
+    margin-bottom: 8px !important;
   }
 }

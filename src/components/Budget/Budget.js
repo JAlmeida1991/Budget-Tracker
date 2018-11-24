@@ -5,7 +5,7 @@ import formatNum from "../../util/formatNumber";
 
 const Budget = props => (
   <div>
-    <div className="d-flex justify-content-around">
+    <div className="d-flex justify-content-around inc-exp--header">
       <h2 className="bg-primary flex-grow-1 p-2 text-center m-1">
         Income:{" $"}
         {props.income.length &&
@@ -22,7 +22,7 @@ const Budget = props => (
       </h2>
     </div>
 
-    <h2 className="bg-success flex-grow-1 p-2 text-center m-1">
+    <h2 className="bg-success flex-grow-1 p-2 text-center m-1 budg--header">
       Budget: {" $"}
       {(() => {
         const incTotal =

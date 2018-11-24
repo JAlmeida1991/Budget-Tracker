@@ -4,14 +4,7 @@ import { Pie } from "react-chartjs-2";
 
 const BudgetPieChart = props => {
   return (
-    <div
-      style={{
-        width: "250px",
-        height: "250px",
-        margin: "0 auto",
-        marginBottom: ".5em"
-      }}
-    >
+    <div className="pie-container">
       <Pie
         data={{
           labels: ["Income", "Expense"],
