@@ -38,6 +38,10 @@ body {
   margin-bottom: 0.5em;
 }
 
+li {
+  word-break: break-all;
+}
+
 @media only screen and (max-width: 48em) {
   .budget-list {
     flex-direction: column;
