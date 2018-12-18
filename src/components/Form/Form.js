@@ -48,7 +48,8 @@ class Form extends Component {
   };
 
   // Need to make async function since setState is asynchronous. Will default to original epoch date otherwise...
-  handleButtonSubmit = async () => {
+  handleButtonSubmit = async e => {
+    e.preventDefault();
     const { description, amount } = this.state.balance;
 
     if (description && amount > 0) {
@@ -86,18 +87,16 @@ class Form extends Component {
   };
 
   render() {
+    const type = this.state.selection === "+" ? "income" : "expense";
     return (
       <Fragment>
-        <form
-          className="d-flex justify-content-center"
-          onSubmit={e => e.preventDefault()}
-        >
+        <form className="d-flex justify-content-center">
           <div className="form-row w-100">
             <div className="col-md-1">
               <select
                 name="select"
                 ref={this.selectInput}
-                className="form-control"
+                className={`form-control ${type}`}
                 onChange={this.changeSelectionHandler}
                 value={this.state.selection}
               >
@@ -108,7 +107,7 @@ class Form extends Component {
             <div className="col-md-6">
               <input
                 name="description"
-                className="form-control"
+                className={`form-control ${type}`}
                 value={this.state.balance.description}
                 onChange={this.updateDescriptionHandler}
                 type="text"
@@ -118,7 +117,7 @@ class Form extends Component {
             <div className="col-md-3">
               <input
                 name="amount"
-                className="form-control"
+                className={`form-control ${type}`}
                 value={this.state.balance.amount}
                 onChange={this.updateAmountHandler}
                 type="number"
